@@ -28,10 +28,10 @@ function App() {
     </div>
 
     <form>
-      <haunted-input @change=${ev => setCard({...card, cardholder_name: ev.detail})} .label=${"Cardholder Name"}></haunted-input>
-      <haunted-input @change=${ev => setCard({...card, card_number: ev.detail})} .label=${"Card Number"}></haunted-input>
-      <haunted-input @change=${ev => setCard({...card, expiration_date: ev.detail})} .label=${"Exp.Date (MM-YY)"}></haunted-input>
-      <haunted-input @change=${ev => setCard({...card, cvc: ev.detail})} .label=${"CVC"}></haunted-input>
+      <haunted-input @change=${(e: CustomEvent) => setCard({...card, cardholder_name: e.detail})} .label=${"Cardholder Name"}></haunted-input>
+      <haunted-input @change=${(e: CustomEvent) => setCard({...card, card_number: e.detail})} .label=${"Card Number"}></haunted-input>
+      <haunted-input @change=${(e: CustomEvent) => setCard({...card, expiration_date: e.detail})} .label=${"Exp.Date (MM-YY)"}></haunted-input>
+      <haunted-input @change=${(e: CustomEvent) => setCard({...card, cvc: e.detail})} .label=${"CVC"}></haunted-input>
       <button type="submit">Confirm</button>
     </form>
 
