@@ -4,11 +4,10 @@ import {
   useState
 } from "haunted"; 
 
-import "./components/Input.js";
+import "./components/Input";
 
 function App() {
   const [card, setCard] = useState({cardholder_name: '', card_number: '', expiration_date: '', cvc: ''});
-  console.log(card)
 
   return html`
     <h2>User Page</h2>

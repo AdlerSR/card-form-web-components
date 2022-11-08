@@ -2,10 +2,17 @@ import {
   html,
   component,
   useState,
-  useEffect
+  useEffect,
 } from "haunted";
 
-function Input({ label }) {
+import { Component } from "haunted/lib/component";
+
+interface InputProps {
+  label: string;
+  this: any
+}
+
+function Input(this: Component<HTMLElement & InputProps> ,{ label }: InputProps) {
   const [input, setInput] = useState("");
 
   useEffect(() => {
@@ -21,7 +28,7 @@ function Input({ label }) {
       <label for=${label}>${label}</label>
       <input
         value=${input}
-        @keyup=${ev => setInput(ev.target.value)}
+        @keyup=${(e: KeyboardEvent) => setInput((e?.target as HTMLInputElement)?.value)}
         type="text"
         id=${label}
       />
@@ -43,4 +50,4 @@ function Input({ label }) {
   `;
 }
 
-customElements.define("haunted-input", component(Input));
+customElements.define("haunted-input", component<HTMLElement & InputProps>(Input, {}));
